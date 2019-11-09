@@ -51,3 +51,22 @@ for index in matrix:
 print(f"Сумма всех элементов {matrix_sum}")
 print("__________________________")
 
+'''Найти индекс ряда с максимальной суммой элементов.'''
+
+line_index = -1
+max_line_sum = 0
+max_line_index = 0
+
+for index in matrix:
+    line_sum = 0
+    line_index +=1
+    for elem in index:
+        line_sum += elem
+    if line_sum > max_line_sum:
+        max_line_sum = line_sum
+        max_line_index = line_index
+
+print(f'Индекс ряда с максимальной суммой элементов {max_line_index}')
+print("_________________________________________")
+
+
