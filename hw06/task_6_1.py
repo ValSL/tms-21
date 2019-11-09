@@ -40,3 +40,14 @@ for index in matrix:
 print(f"Минимальный элемент {min}")
 print("_______________________")
 
+'''Найти сумму всех элементов матрицы.'''
+
+matrix_sum = 0
+
+for index in matrix:
+    for elem in index:
+        matrix_sum += elem
+
+print(f"Сумма всех элементов {matrix_sum}")
+print("__________________________")
+
