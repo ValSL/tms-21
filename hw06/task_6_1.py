@@ -70,3 +70,23 @@ print(f'Индекс ряда с максимальной суммой элем�
 print("_________________________________________")
 
 
+'''Найти индекс колонки с максимальной суммой элементов.'''
+
+max_column_sum = matrix[0][0]
+max_column_index = -1
+row = 0
+
+while row < len(matrix):
+    column_sum = 0
+    column = 0
+    while column < len(matrix):
+        column_sum += matrix[column][row]
+        column += 1
+    if max_column_sum < column_sum:
+        max_column_sum = column_sum
+        max_column_index += 1
+    row += 1
+
+print(f"Индекс колонки с максимальной суммой элементов {max_column_index}")
+print("_____________________________________________________________")
+
