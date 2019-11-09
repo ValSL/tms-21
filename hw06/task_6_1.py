@@ -146,3 +146,33 @@ while min_row < len(matrix):
 print(f'индекс колонки с минимальной суммой элементов {min_column_index}')
 print("_________________________________________________________")
 
+'''Обнулить все элементы выше главной диагонали.'''
+
+index_in_line = 0
+
+
+while index_in_line < len(matrix):
+    index_in_col = 0
+    pos_of_main_diag = 0
+    position_index = 0
+
+    while index_in_col < len(matrix):
+        pos_of_main_diag = index_in_line
+
+        if index_in_line == index_in_col:
+            position_index += 1
+            index_in_col += 1
+            continue
+
+        if position_index > pos_of_main_diag:
+            matrix[index_in_line][index_in_col] = 0
+
+        position_index += 1
+        index_in_col += 1
+    index_in_line += 1
+
+for i in matrix:
+    print(i)
+
+print("_________________________")
+
