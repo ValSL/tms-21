@@ -90,3 +90,26 @@ while row < len(matrix):
 print(f"Индекс колонки с максимальной суммой элементов {max_column_index}")
 print("_____________________________________________________________")
 
+'''Найти индекс ряда с минимальной суммой элементов.'''
+
+line_index_count = -1
+min_line_sum = 0
+min_line_index = 0
+
+for line in matrix:
+    for column in line:
+        min_line_sum += column
+    break
+
+for index in matrix:
+    line_sum = 0
+    for elem in index:
+        line_sum += elem
+    line_index_count += 1
+    if line_sum < min_line_sum:
+        min_line_sum = line_sum
+        min_line_index = line_index_count
+
+print(f'индекс ряда с минимальной суммой элементов {min_line_index}')
+print("_______________________________________________")
+
