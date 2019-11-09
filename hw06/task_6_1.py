@@ -27,3 +27,16 @@ for index in matrix:
 print(f'Максимальный элемент {max}')
 print("_______________________")
 
+'''Найти минимальный минимальный матрицы.'''
+
+min = matrix[0][0]
+matrix_len = len(matrix)
+
+for index in matrix:
+    for elem in index:
+        if elem < min:
+            min = elem
+
+print(f"Минимальный элемент {min}")
+print("_______________________")
+
