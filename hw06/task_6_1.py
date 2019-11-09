@@ -15,3 +15,15 @@ for row in range(n):
 print("_______________")
 
 
+'''Найти максимальный элемент матрицы.'''
+max = matrix[0][0]
+matrix_len = len(matrix)
+
+for index in matrix:
+    for elem in index:
+        if elem > max:
+            max = elem
+
+print(f'Максимальный элемент {max}')
+print("_______________________")
+
