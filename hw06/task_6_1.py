@@ -203,3 +203,30 @@ while index_in_line < len(matrix):
 
 for i in matrix:
     print(i)
+print("_______________________________")
+
+'''Создать две новые матрицы matrix_a, matrix_b случайных чисел размерностью n*m. '''
+print("Создать две новые матрицы matrix_a, matrix_b случайных чисел размерностью n*m. ")
+n2 = 3
+m2 = 3
+matrix_a = []
+matrix_b = []
+
+for col in range(n2):
+    matrix_line = []
+    for line in range(m2):
+        matrix_line.append(random.randint(0, 9))
+    matrix_a.append(matrix_line)
+
+for col in range(n2):
+    matrix_line = []
+    for line in range(m2):
+        matrix_line.append(random.randint(0, 9))
+    matrix_b.append(matrix_line)
+for i in matrix_a:
+    print(i)
+
+print("")
+
+for i in matrix_b:
+    print(i)
