@@ -261,12 +261,34 @@ while line < len(matrix_a):
     matrix_ab_line = []
     col = 0
     while col < len(matrix_a):
-        elem_sum = matrix_a[line][col] - matrix_b[line][col]
-        matrix_ab_line.append(elem_sum)
+        elem_diff = matrix_a[line][col] - matrix_b[line][col]
+        matrix_ab_line.append(elem_diff)
         col += 1
     matrix_a_minus_b.append(matrix_ab_line)
     line += 1
 
 print("Матрица равная разности matrix_a и matrix_b.")
 for i in matrix_a_minus_b:
+    print(i)
+
+'''Создать новую матрицу равную matrix_a умноженной на g. g вводится с клавиатура'''
+
+g = int(input("Ввести число: "))
+
+matrix_a_multiply_g = []
+
+line = 0
+
+while line < len(matrix_a):
+    matrix_ab_line = []
+    col = 0
+    while col < len(matrix_a):
+        elem_mult = matrix_a[line][col] * g
+        matrix_ab_line.append(elem_mult)
+        col += 1
+    matrix_a_multiply_g.append(matrix_ab_line)
+    line += 1
+
+print("Матрица равная matrix_a умноженная на g")
+for i in matrix_a_multiply_g:
     print(i)
