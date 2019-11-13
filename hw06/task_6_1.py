@@ -233,7 +233,7 @@ for i in matrix_b:
 
 '''Создать матрицу равную сумме matrix_a и matrix_b.'''
 print("")
-matrix_ab = []
+matrix_a_plus_b = []
 
 line = 0
 
@@ -244,8 +244,29 @@ while line < len(matrix_a):
         elem_sum = matrix_a[line][col] + matrix_b[line][col]
         matrix_ab_line.append(elem_sum)
         col += 1
-    matrix_ab.append(matrix_ab_line)
+    matrix_a_plus_b.append(matrix_ab_line)
     line += 1
 
-for i in matrix_ab:
+print("Матрица равная сумме matrix_a и matrix_b.")
+for i in matrix_a_plus_b:
+    print(i)
+print("__________________________________")
+
+'''Создать матрицу равную разности matrix_a и matrix_b.'''
+
+matrix_a_minus_b = []
+line = 0
+
+while line < len(matrix_a):
+    matrix_ab_line = []
+    col = 0
+    while col < len(matrix_a):
+        elem_sum = matrix_a[line][col] - matrix_b[line][col]
+        matrix_ab_line.append(elem_sum)
+        col += 1
+    matrix_a_minus_b.append(matrix_ab_line)
+    line += 1
+
+print("Матрица равная разности matrix_a и matrix_b.")
+for i in matrix_a_minus_b:
     print(i)
