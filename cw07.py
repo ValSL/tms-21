@@ -20,3 +20,14 @@ def matrix_out(any_matrix):
 matrix_out(matrix)
 
 
+def matrix_sum(any_matrix):
+    sum = 0
+    for i in any_matrix:
+        for j in i:
+            sum += j
+    return sum
+
+print(matrix_sum(matrix))
+
+
+
