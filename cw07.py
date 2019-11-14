@@ -30,4 +30,26 @@ def matrix_sum(any_matrix):
 print(matrix_sum(matrix))
 
 
+def matrix_max(any_matrix):
+    max = any_matrix[0][0]
+    for i in any_matrix:
+        for j in i:
+            if j > max:
+                max = j
+    return max
+
+print(matrix_max(matrix))
+
+
+def matrix_min(any_matrix):
+    min = any_matrix[0][0]
+    for i in any_matrix:
+        for j in i:
+            if j < min:
+                min = j
+    return min
+
+
+print(matrix_min(matrix))
+
 
