@@ -9,4 +9,14 @@ def matrix_create (n, m):
         matrix.append(mass_line)
     return matrix
 
-print(matrix_create(3,3))
+
+matrix = matrix_create(3,3)
+
+
+def matrix_out(any_matrix):
+    print(any_matrix)
+
+
+matrix_out(matrix)
+
+
