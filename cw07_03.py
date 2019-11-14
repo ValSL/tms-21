@@ -1,7 +1,7 @@
 import random
 
 
-def matrix_create(n, rand_from = 1, rand_to = 9):
+def matrix_create(n, rand_from=1, rand_to=9):
     matrix = []
     for row in range(n):
         mass_line = []
@@ -11,4 +11,4 @@ def matrix_create(n, rand_from = 1, rand_to = 9):
     return matrix
 
 
-print(matrix_create(3, 1, 20))
+print(matrix_create(3))
