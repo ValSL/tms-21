@@ -1,5 +1,6 @@
 import random
 
+
 def matrix_create (n, m):
     matrix = []
     for row in range(n):
@@ -10,11 +11,12 @@ def matrix_create (n, m):
     return matrix
 
 
-matrix = matrix_create(3,3)
+matrix = matrix_create(3, 3)
 
 
 def matrix_out(any_matrix):
-    print(any_matrix)
+    for line in any_matrix:
+        print(line)
 
 
 matrix_out(matrix)
@@ -27,6 +29,7 @@ def matrix_sum(any_matrix):
             sum += j
     return sum
 
+
 print(matrix_sum(matrix))
 
 
@@ -37,6 +40,7 @@ def matrix_max(any_matrix):
             if j > max:
                 max = j
     return max
+
 
 print(matrix_max(matrix))
 
