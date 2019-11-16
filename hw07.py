@@ -78,3 +78,12 @@ def grams_to_ounces(gram):
 
 a = grams_to_ounces(12)
 print(a)
+
+
+'''Галлон в литры'''
+def gallon_to_liter(gal):
+    lit = gal * 3.79
+    return lit
+
+a = gallon_to_liter(18)
+print(a)
