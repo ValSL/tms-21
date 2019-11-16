@@ -19,3 +19,11 @@ def centimeters_to_inches(cent):
 a = centimeters_to_inches(220)
 print(a)
 
+
+'''Мили в километры'''
+def miles_in_kilometers(miles):
+    kil = miles * 1.61
+    return kil
+
+a = miles_in_kilometers(13)
+print(a)
