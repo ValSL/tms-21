@@ -98,3 +98,12 @@ def liter_to_gallon(lit):
 
 a = liter_to_gallon(15)
 print(a)
+
+
+'''Пинты в литры'''
+def pints_to_liter(pin):
+    lit = pin * 0.47
+    return lit
+
+a = pints_to_liter(13)
+print(a)
