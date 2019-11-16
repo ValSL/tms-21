@@ -58,3 +58,13 @@ def kilograms_to_pounds(kilo):
 
 a = kilograms_to_pounds(19)
 print(a)
+
+
+'''Унции в граммы'''
+def ounces_to_grams(oun):
+    gram = oun * 28.35
+    return gram
+
+
+a = ounces_to_grams(14)
+print(a)
