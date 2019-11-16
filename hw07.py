@@ -107,3 +107,12 @@ def pints_to_liter(pin):
 
 a = pints_to_liter(13)
 print(a)
+
+
+'''Литры в пинты'''
+def liter_to_pints(lit):
+    pin = lit * 2.11
+    return pin
+
+a = liter_to_pints(14)
+print(a)
