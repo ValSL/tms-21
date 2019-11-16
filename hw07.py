@@ -139,40 +139,40 @@ while True:
         print(f'{index} - {value}')
     variant = int(input("Выберите один из вариантов: "))
     if variant == 1:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(inches_to_centimeters(num))
     elif variant == 2:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(centimeters_to_inches(num))
     elif variant == 3:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(miles_in_kilometers(num))
     elif variant == 4:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(kilometers_in_miles(num))
     elif variant == 5:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(pounds_to_kilograms(num))
     elif variant == 6:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(kilograms_to_pounds(num))
     elif variant == 7:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(ounces_to_grams(num))
     elif variant == 8:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(grams_to_ounces(num))
     elif variant == 9:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(gallon_to_liter(num))
     elif variant == 10:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(liter_to_gallon(num))
     elif variant == 11:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(pints_to_liter(num))
     elif variant == 12:
-        num = int(input("Введите число"))
+        num = int(input("Введите число "))
         print(liter_to_pints(num))
     elif variant == 0:
         break
