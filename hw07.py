@@ -25,6 +25,7 @@ def miles_in_kilometers(miles):
     kil = miles * 1.61
     return kil
 
+
 a = miles_in_kilometers(13)
 print(a)
 
@@ -37,3 +38,14 @@ def kilometers_in_miles(kil):
 
 a = kilometers_in_miles(14)
 print(a)
+
+
+'''Фунты в килограммы'''
+def pounds_to_kilograms(pound):
+    kilo = pound * 0.45
+    return kilo
+
+
+a = pounds_to_kilograms(17)
+print(a)
+
