@@ -68,3 +68,13 @@ def ounces_to_grams(oun):
 
 a = ounces_to_grams(14)
 print(a)
+
+
+'''Граммы в унции'''
+def grams_to_ounces(gram):
+    oun = gram * 0.035
+    return oun
+
+
+a = grams_to_ounces(12)
+print(a)
