@@ -27,3 +27,13 @@ def miles_in_kilometers(miles):
 
 a = miles_in_kilometers(13)
 print(a)
+
+
+'''Километры в мили'''
+def kilometers_in_miles(kil):
+    miles = kil * 0.62
+    return miles
+
+
+a = kilometers_in_miles(14)
+print(a)
