@@ -85,5 +85,16 @@ def gallon_to_liter(gal):
     lit = gal * 3.79
     return lit
 
+
 a = gallon_to_liter(18)
+print(a)
+
+
+'''Литры в галлоны'''
+def liter_to_gallon(lit):
+    gal = lit * 0.26
+    return gal
+
+
+a = liter_to_gallon(15)
 print(a)
