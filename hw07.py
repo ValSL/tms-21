@@ -49,3 +49,12 @@ def pounds_to_kilograms(pound):
 a = pounds_to_kilograms(17)
 print(a)
 
+
+'''Килограммы в фунты'''
+def kilograms_to_pounds(kilo):
+    pound = kilo * 2.2
+    return pound
+
+
+a = kilograms_to_pounds(19)
+print(a)
