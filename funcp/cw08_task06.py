@@ -1,4 +1,4 @@
-def func (a, b, c):
+def func(a, b, c):
     disc = (b ** 2) - 4 * a * c
     if disc < 0:
         res = 'Нет корней'
