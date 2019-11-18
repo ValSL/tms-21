@@ -1,7 +1,12 @@
-def func(a, b, c):
+from typing import Optional, Union
+
+
+def func(a: Union[int, float], b: Union[float, int], c: Union[float, int]) -> tuple:
+    """Квадратное уравнение"""
     disc = (b ** 2) - 4 * a * c
     if disc < 0:
-        res = 'Нет корней'
+        print('Нет корней')
+        res = 0
         return res
     elif disc == 0:
         res = -b / 2 * a
