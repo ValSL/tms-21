@@ -6,6 +6,7 @@ n!! = 1·3·5·...·n, если n — нечетное; n!! = 2·4·6·...·n, �
 
 
 def fact2(n: int) -> int:
+    """factorial calculation on even and odd numbers"""
     res = 1
     if n % 2 == 0:
         even_list = [i for i in range(1, n+1) if i % 2 == 0]
