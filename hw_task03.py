@@ -8,12 +8,12 @@ def fact(number):
 def sin1(x, e):
     sin_x = 1
     for n in range(1, 6):
-        sin_x += ((-1)**n) * (((-1)** n) * (x**((2*n+1)/(fact(2*n+1)))))
+        sin_x += ((-1)**n) * (((-1) ** n) * (x**((2*n+1)/(fact(2*n+1)))))
     return sin_x
 
 
 def main():
-    print(sin1(1,3))
+    print(sin1(1, 3))
 
 
 if __name__ == "__main__":
