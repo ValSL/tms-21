@@ -5,7 +5,7 @@ n!! = 1·3·5·...·n, если n — нечетное; n!! = 2·4·6·...·n, �
 '''
 
 
-def fact2(n):
+def fact2(n: int) -> int:
     res = 1
     if n % 2 == 0:
         even_list = [i for i in range(1, n+1) if i % 2 == 0]
@@ -20,8 +20,9 @@ def fact2(n):
 
 
 def main():
-    a = fact2(7)
-    print(a)
+    numbers = [5, 6, 9, 12, 15]
+    for i in numbers:
+        print(fact2(i))
 
 
 if __name__ == '__main__':
