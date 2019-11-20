@@ -4,12 +4,13 @@ def is_power_n(k, n):
         number = number * n
         if number == k:
             return True
+    return False
 
 
 
 
 def main():
-    a = is_power_n(9, 2)
+    a = is_power_n(16, 2)
     print(a)
 
 
