@@ -7,11 +7,17 @@ def is_power_n(k, n):
     return False
 
 
-
-
 def main():
-    a = is_power_n(16, 2)
-    print(a)
+    n = 2
+    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    count = 0
+    for number in numbers:
+        res = is_power_n(number, n)
+        if res == True:
+            count += 1
+        else:
+            continue
+    print(f'Количество степене числа {n} в списке, равно {count}')
 
 
 if __name__ == '__main__':
