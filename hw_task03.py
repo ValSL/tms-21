@@ -10,15 +10,15 @@ def sin1(x, e):
     while True:
         for n in range(1, 100):
             slag = (-1)**n * x**((2*n+1)/fact(2*n+1))
-            if slag > e:
+            if abs(slag) > e:
                 sin_x += slag
             else:
-                continue
+                break
         return sin_x
 
 
 def main():
-    print(sin1(4, -1))
+    print(sin1(3, 1))
 
 
 if __name__ == "__main__":
