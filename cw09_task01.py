@@ -1,3 +1,4 @@
-func = lambda name: print(f'hello {name}')
+func = lambda name: name
 
-func('val')
+a = func('val')
+print(f'Hello {a}')
