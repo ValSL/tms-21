@@ -12,6 +12,7 @@ def calc(a, b):
     res = a - b
     print(res)
 
+
 @argument_reverse_decorator
 def calc5(a, b, c, d, e):
     res = a - b - c - d - e
