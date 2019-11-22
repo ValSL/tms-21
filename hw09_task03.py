@@ -9,6 +9,7 @@ def decorator_without_even(func):
             if value % 2 == 0:
                 any_list.pop(index)
         func(any_list)
+
     return delete_all_even
 
 
