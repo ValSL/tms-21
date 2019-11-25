@@ -4,7 +4,7 @@ def main():
 
         for line in file_1:
             new_line = ''
-            for index, elem in enumerate(line):
+            for elem in line:
                 if elem == '0':
                     new_line = new_line + '1'
                 elif elem == '1':
@@ -13,7 +13,7 @@ def main():
                     new_line = new_line + elem
 
             f2 = open('new_file', 'a')
-            f2.write(f'{new_line}\n')
+            f2.write(f'{new_line}')
 
 
 if __name__ == '__main__':
