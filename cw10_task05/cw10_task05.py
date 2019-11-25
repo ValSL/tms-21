@@ -1,5 +1,5 @@
 def main():
-    with open('task05.txt', 'r') as f:
+    with open('task05.txt', 'r') as f:  # Можно открывать сразумного файлов ,open() as a, open() as b, ...
         for index, line in enumerate(f.readlines()):
             if (index + 1) % 2 == 0:
                 f2 = open('file2.txt', 'a')
