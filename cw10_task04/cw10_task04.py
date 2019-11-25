@@ -4,7 +4,7 @@ def main():
 
         for line in file_1:
             new_line = ''
-            for elem in line:
+            for elem in line: # в Python циклы можно записывать в одну строку
                 if elem == '0':
                     new_line = new_line + '1'
                 elif elem == '1':
