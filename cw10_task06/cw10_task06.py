@@ -8,7 +8,7 @@ def main():
         line = []
         for j in range(3):
             line.append(randint(1,9))
-        matrix.append(line)
+        matrix.append(line)    # ЭТО 10.7 доделать
 
     with open('file.json', 'a') as f:
         data = json.dumps({'matrix': matrix})
