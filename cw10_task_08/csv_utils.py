@@ -43,6 +43,25 @@ def csv_file_add(csv_filename: str, info: list, pos=None):
     csv_write(fields, lines, csv_filename)
 
 
+def csv_file_delete(csv_filename: str, pos=None):
+    lines = []
+    with open(csv_filename, 'r') as my_file:
+        csvreader = csv.reader(my_file)
+        fields = next(csvreader)
+        for line in csvreader:
+            lines.append(line)
+        if pos is None:
+            lines.pop(len(lines) - 1)
+            csv_write(fields, lines, csv_filename)
+            return
+        lines.pop(pos)
+        csv_write(fields, lines, csv_filename)
+
+
+
+
+
+
 
 
 
