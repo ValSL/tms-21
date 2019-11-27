@@ -22,7 +22,7 @@ def csv_read(csv_filename: str):
     print()
     for line in rows:
         for col in line:
-            print('%10s' % col, end='')
+            print('%11s' % col, end='')
         print()
 
 
@@ -44,6 +44,7 @@ def csv_file_add(csv_filename: str, info: list, pos=None):
 
 
 def csv_file_delete(csv_filename: str, pos=None):
+    """Positional deletion of information from csv file"""
     lines = []
     with open(csv_filename, 'r') as my_file:
         csvreader = csv.reader(my_file)
