@@ -7,14 +7,17 @@ class Dog:
         self.name = name
         self.age = age
 
+    def get_master(self):
+        return self.__master
+
+    def set_master(self, master):
+        self.__master = master
+
     def get_city(self):
         return self.__city
 
     def set_city(self, city):
         self.__city = city
-
-    def get_master(self):
-        return self.__master
 
     def change_height(self, height):
         self.height = height
@@ -50,6 +53,9 @@ def main():
     print(dog1._Dog__master)  # Обход приватности
     a = dog1.get_master()
     print(a)
+
+    dog_city = dog1.get_city()
+    print(dog_city)
 
 
 if __name__ == '__main__':
