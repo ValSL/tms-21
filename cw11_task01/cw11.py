@@ -1,9 +1,11 @@
-class Dod:
+class Dog:
     pass
 
 
 def main():
-    pass
+    dog1 = Dog()
+    dog2 = Dog()
+    print(dog1, dog2)
 
 
 if __name__ == '__main__':
