@@ -1,10 +1,17 @@
 class Dog:
-    def __init__(self, height, weight, name, age, master):
+    def __init__(self, height, weight, name, age, master, city='Minsk'):
+        self.__city = city
         self.__master = master
         self.height = height
         self.weight = weight
         self.name = name
         self.age = age
+
+    def get_city(self):
+        return self.__city
+
+    def set_city(self, city):
+        self.__city = city
 
     def get_master(self):
         return self.__master
