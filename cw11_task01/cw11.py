@@ -40,8 +40,7 @@ def main():
     dog1.change_name('Bobik')
     print(dog1.name)
 
-
-    print(dog1._Dog__master)
+    print(dog1._Dog__master)  # Обход приватности
     a = dog1.get_master()
     print(a)
 
