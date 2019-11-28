@@ -1,4 +1,10 @@
 class Dog:
+    def __init__(self, height, weight, name, age):
+        self.height = height
+        self.weight = weight
+        self.name = name
+        self.age = age
+
     def bark(self):
         print('Woof Woof!')
 
@@ -10,12 +16,13 @@ class Dog:
 
 
 def main():
-    dog1 = Dog()
-    dog2 = Dog()
-    print(dog1, dog2)
+    dog1 = Dog(2, 50, 'Barsik', 5)
+    print(dog1)
     print('______________')
+
     dog1.jump()
     dog1.run()
+    dog1.bark()
 
 
 if __name__ == '__main__':
