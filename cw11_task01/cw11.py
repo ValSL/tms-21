@@ -5,6 +5,9 @@ class Dog:
         self.name = name
         self.age = age
 
+    def change_height(self, height):
+        self.height = height
+
     def change_name(self, name):
         self.name = name
 
