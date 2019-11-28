@@ -5,6 +5,9 @@ class Dog:
         self.name = name
         self.age = age
 
+    def change_name(self, name):
+        self.name = name
+
     def bark(self):
         print('Woof Woof!')
 
@@ -26,6 +29,8 @@ def main():
     print(dog1.age)
     print(dog1.weight)
     print(dog1.height)
+    print(dog1.name)
+    dog1.change_name('Bobik')
     print(dog1.name)
 
 
