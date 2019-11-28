@@ -23,6 +23,10 @@ def main():
     dog1.jump()
     dog1.run()
     dog1.bark()
+    print(dog1.age)
+    print(dog1.weight)
+    print(dog1.height)
+    print(dog1.name)
 
 
 if __name__ == '__main__':
