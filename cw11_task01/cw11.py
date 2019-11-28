@@ -1,4 +1,7 @@
 class Dog:
+    def bark(self):
+        print('Woof Woof!')
+
     def jump(self):
         print('Jump')
 
