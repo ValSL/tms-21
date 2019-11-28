@@ -101,7 +101,7 @@ def cheapest(csv_filename: str):
         return min
 
 
-def reducing_products_amount(csv_filename: str, prod_index: int, n = 1):
+def reducing_products_amount(csv_filename: str, prod_index: int, n=1):
     """Reducing the number of products"""
     lines = []
     with open(csv_filename, 'r') as f:
