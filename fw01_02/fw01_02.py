@@ -20,14 +20,15 @@ def csv_write(lines: list, name='users.csv'):
         csvwriter.writerow(fields)
         csvwriter.writerows(lines)
 
+
 def is_unique_id(line):
     fields, rows = csv_read()
     for lines in rows:
-        if lines[4] ==line[0][4]:
+        if lines[4] == line[0][4]:
             return False
     else:
         return True
-        
+
 
 def csv_user_create(lines: list):
     fields, rows = csv_read()
@@ -109,7 +110,7 @@ def csv_user_find():
             if line[0] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
-                print('_'*150)
+                print('_' * 150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -122,7 +123,7 @@ def csv_user_find():
             if line[1] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
-                print('_'*150)
+                print('_' * 150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -135,7 +136,7 @@ def csv_user_find():
             if line[2] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
-                print('_'*150)
+                print('_' * 150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -148,7 +149,7 @@ def csv_user_find():
             if line[3] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
-                print('_'*150)
+                print('_' * 150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -161,7 +162,7 @@ def csv_user_find():
             if line[4] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
-                print('_'*150)
+                print('_' * 150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -182,12 +183,12 @@ def csv_filter():
         for index, line in enumerate(rows):
             if datetime.strptime(line[3], '%d.%m.%Y').date() > date_input:
                 csv_print(line[4])
-                print('_'*150)
+                print('_' * 150)
     elif choose == '1':
         for index, line in enumerate(rows):
             if datetime.strptime(line[3], '%d.%m.%Y').date() < date_input:
                 csv_print(line[4])
-                print('_'*150)
+                print('_' * 150)
     else:
         print('Таких нет')
 
@@ -227,6 +228,7 @@ def main():
         if choose == '5':
             csv_filter()
             input('press enter')
+
 
 if __name__ == '__main__':
     main()
