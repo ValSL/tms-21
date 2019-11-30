@@ -20,11 +20,26 @@ def csv_write(lines: list, name='users.csv'):
         csvwriter.writerow(fields)
         csvwriter.writerows(lines)
 
+def is_unique_id(line):
+    fields, rows = csv_read()
+    for lines in rows:
+        if lines[4] ==line[0][4]:
+            return False
+    else:
+        return True
+        
 
 def csv_user_create(lines: list):
     fields, rows = csv_read()
-    rows += lines
-    csv_write(rows)
+    if len(rows) == 5:
+        print('Достигнуто максимальное количество пользователей')
+        return
+    if is_unique_id(lines):
+        rows += lines
+        csv_write(rows)
+    else:
+        lines[0][4] = str(randint(1, 5))
+        csv_user_create(lines)
 
 
 def csv_user_delete(id):
@@ -195,7 +210,7 @@ def main():
             sec_name = input('Введите фамилию: ')
             prof = input('Введите профессию: ')
             birth_date = input('Введите дату рождения в формате Day.Month.Year: ')
-            lines = [name, sec_name, prof, birth_date, randint(100, 500)]
+            lines = [name, sec_name, prof, birth_date, str(randint(1, 5))]
             csv_user_create([lines])
             input('press enter')
         if choose == '2':
