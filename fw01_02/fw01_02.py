@@ -94,6 +94,7 @@ def csv_user_find():
             if line[0] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
+                print('_'*150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -106,6 +107,7 @@ def csv_user_find():
             if line[1] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
+                print('_'*150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -118,6 +120,7 @@ def csv_user_find():
             if line[2] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
+                print('_'*150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -130,6 +133,7 @@ def csv_user_find():
             if line[3] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
+                print('_'*150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -142,6 +146,7 @@ def csv_user_find():
             if line[4] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
+                print('_'*150)
             if index == (len(rows) - 1):
                 break
             continue
@@ -150,7 +155,26 @@ def csv_user_find():
 
 
 def csv_filter():
-    pass
+    print('''
+            Выберите фильтрацию
+            1) Пользователи дата рождения которых раньше заданной
+            2) Пользователи дата рождения которых позже заданной''')
+    choose = input('Enter: ')
+    date_input = input('Введите дату: ')
+    date_input = datetime.strptime(date_input, '%d.%m.%Y').date()
+    fields, rows = csv_read()
+    if choose == '2':
+        for index, line in enumerate(rows):
+            if datetime.strptime(line[3], '%d.%m.%Y').date() > date_input:
+                csv_print(line[4])
+                print('_'*150)
+    elif choose == '1':
+        for index, line in enumerate(rows):
+            if datetime.strptime(line[3], '%d.%m.%Y').date() < date_input:
+                csv_print(line[4])
+                print('_'*150)
+    else:
+        print('Таких нет')
 
 
 def main():
@@ -185,9 +209,9 @@ def main():
         if choose == '4':
             csv_user_find()
             input('press enter')
-        # if choose == '5':
-        #     filter()
-        #     input('press enter')
-        #
+        if choose == '5':
+            csv_filter()
+            input('press enter')
+
 if __name__ == '__main__':
     main()
