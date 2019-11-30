@@ -1,5 +1,5 @@
 import csv
-from datetime import datetime, date, time
+from datetime import datetime
 from random import randint
 
 
