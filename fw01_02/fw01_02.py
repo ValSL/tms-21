@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
 from random import randint
+import os.path
 
 
 def csv_read(csv_filename='users.csv'):
@@ -13,7 +14,7 @@ def csv_read(csv_filename='users.csv'):
     return fields, rows
 
 
-def csv_write(lines: list, name='users.csv'):
+def csv_write(lines, name='users.csv'):
     fields = ['name', 'sec_name', 'prof', 'birth_date', 'id']
     with open(name, 'w') as csvfile:
         csvwriter = csv.writer(csvfile)
@@ -94,6 +95,20 @@ def csv_print(id):
             print()
 
 
+def csv_print_all():
+    if os.path.isfile('users.csv'):
+        fields, rows = csv_read()
+        for col in fields:
+            print(col.ljust(30, " "), end='')
+        print()
+        for row in rows:
+            for col in row:
+                print(col.ljust(30, " "), end='')
+            print()
+    else:
+        print('Файл не создан')
+
+
 def csv_user_find():
     fields, rows = csv_read()
     print('''
@@ -106,68 +121,79 @@ def csv_user_find():
     choose = input('Enter: ')
     if choose == '1':
         inp = input('Введите имя: ')
+        k = False
         for index, line in enumerate(rows):
             if line[0] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
                 print('_' * 150)
-            if index == (len(rows) - 1):
+                k = True
+            elif index == (len(rows) - 1) and k:
                 break
-            continue
-        else:
-            print('Такого пользователя нет')
+            elif index == (len(rows) - 1):
+                print('Такого пользователя нет')
+                break
 
     elif choose == '2':
         inp = input('Введите фамилию: ')
+        k = False
         for index, line in enumerate(rows):
             if line[1] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
                 print('_' * 150)
-            if index == (len(rows) - 1):
+                k = True
+            elif index == (len(rows) - 1) and k:
                 break
-            continue
-        else:
-            print('Такого пользователя нет')
+            elif index == (len(rows) - 1):
+                print('Такого пользователя нет')
+                break
 
     elif choose == '3':
         inp = input('Введите профессию: ')
+        k = False
         for index, line in enumerate(rows):
             if line[2] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
                 print('_' * 150)
-            if index == (len(rows) - 1):
+                k = True
+            elif index == (len(rows) - 1) and k:
                 break
-            continue
-        else:
-            print('Такого пользователя нет')
+            elif index == (len(rows) - 1):
+                print('Такого пользователя нет')
+                break
 
     elif choose == '4':
         inp = input('Введите дату: ')
+        k = False
         for index, line in enumerate(rows):
             if line[3] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
                 print('_' * 150)
-            if index == (len(rows) - 1):
+                k = True
+            elif index == (len(rows) - 1) and k:
                 break
-            continue
-        else:
-            print('Такого пользователя нет')
+            elif index == (len(rows) - 1):
+                print('Такого пользователя нет')
+                break
+
 
     elif choose == '5':
         inp = input('Введите ID: ')
+        k = False
         for index, line in enumerate(rows):
             if line[4] == inp:
                 print('Такой пользователь есть')
                 csv_print(line[4])
                 print('_' * 150)
-            if index == (len(rows) - 1):
+                k = True
+            elif index == (len(rows) - 1) and k:
                 break
-            continue
-        else:
-            print('Такого пользователя нет')
+            elif index == (len(rows) - 1):
+                print('Такого пользователя нет')
+                break
 
 
 def csv_filter():
@@ -197,6 +223,8 @@ def main():
     while True:
         print('''
             Выберите действие
+        7) Вывести файл в консоль
+        6) Создать файл
         1) Создать пользователя
         2) Удалить пользователя
         3) Изменить пользователя
@@ -206,6 +234,12 @@ def main():
         choose = input('Enter: ')
         if choose == '0':
             break
+        if choose == '7':
+            csv_print_all()
+            input('press enter')
+        if choose == '6':
+            csv_write([['_', '_', '_', '_', '_']])
+            input('press enter')
         if choose == '1':
             name = input('Введите имя: ')
             sec_name = input('Введите фамилию: ')
