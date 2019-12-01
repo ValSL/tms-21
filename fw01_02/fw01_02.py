@@ -179,7 +179,6 @@ def csv_user_find():
                 print('Такого пользователя нет')
                 break
 
-
     elif choose == '5':
         inp = input('Введите ID: ')
         k = False
