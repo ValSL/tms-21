@@ -60,10 +60,12 @@ def correction(id):
             elif choose == '2':
                 values['second_name'] = input('Введите новую фамилию: ')
             elif choose == '3':
-                values['name'] = input('Введите новую дату рождения: ')
+                values['date_of_birth'] = input('Введите новую дату рождения: ')
             elif choose == '4':
                 values['profession'] = input('Введите новую профессию: ')
+            break
         dict_file[keys] = values
+
     else:
         print('Такого пользователя нет')
 
@@ -132,7 +134,7 @@ def find():
             print('Такого пользователя не существует')
 
 
-def filter():
+def filter__print():
     print('''
         Выберите фильтрацию
         1) Пользователи дата рождения которых раньше заданной
@@ -162,6 +164,7 @@ def main():
         3) Изменить пользователя
         4) Найти пользователя
         5) Фильтр
+        0) Выход
         ''')
         choose = input('Enter: ')
         if choose == '0':
@@ -185,7 +188,7 @@ def main():
             find()
             input('press enter')
         if choose == '5':
-            filter()
+            filter__print()
             input('press enter')
 
 
