@@ -22,7 +22,6 @@ def create_unique_id():
     return new_id
 
 
-
 def create_new_user(name, second_name, profession, date_of_birth):
     with open('users.json') as f:
         data = json.loads(f.read())
