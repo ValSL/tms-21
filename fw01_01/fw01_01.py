@@ -11,6 +11,18 @@ def file_to_dict(filename: str):
     return file_dict
 
 
+def create_unique_id():
+    file = file_to_dict('users.json')
+    new_id = randint(1, 5)
+    for value in file.values():
+        if value['id'] == new_id:
+            new_id = create_unique_id()
+        else:
+            continue
+    return new_id
+
+
+
 def create_new_user(name, second_name, profession, date_of_birth):
     with open('users.json') as f:
         data = json.loads(f.read())
@@ -22,7 +34,7 @@ def create_new_user(name, second_name, profession, date_of_birth):
         'second_name': second_name,
         'profession': profession,
         'date_of_birth': date_of_birth,
-        'id': randint(100, 500)
+        'id': create_unique_id()
     }
     users[len(list_keys)] = new_user
 
@@ -170,10 +182,14 @@ def main():
         if choose == '0':
             break
         if choose == '1':
+            file = file_to_dict('users.json')
+            if len(file) == 5:
+                print('Лимит')
+                continue
             name = input('Введите имя: ')
             sec_name = input('Введите фамилию: ')
-            prof = input('Введите профессию: ')
-            birth_date = input('Введите дату рождения в формате Day.Month.Year: ')
+            prof = input('Введитн профессию: ')
+            birth_date = input('Введите дату рождения в формате D.M.Y: ')
             create_new_user(name, sec_name, prof, birth_date)
             input('press enter')
         if choose == '2':
