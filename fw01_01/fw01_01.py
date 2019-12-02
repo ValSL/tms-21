@@ -45,13 +45,13 @@ def create_new_user(name, second_name, profession, date_of_birth):
 def delete_user(id):
     dict_file = file_to_dict('users.json')
     delete_key = 0
-    id_list = []
+    delete_keys_list = []
     for keys, values in dict_file.items():
-        id_list.append(keys)
+        delete_keys_list.append(keys)
         if values['id'] == id:
             delete_key = keys
-    if delete_key not in id_list:
-        print('net')
+    if delete_key not in delete_keys_list:
+        print('Такого пользователя нет')
         return
     dict_file.pop(delete_key)
     with open('users.json', 'w') as f:
@@ -129,7 +129,7 @@ def find():
             print('Такого пользователя не существует')
 
     if choose == '4':
-        enter = input('Введите дату: ')
+        enter = input('Введите дату в формате d.m.y: ')
         for keys, values in dict_file.items():
             if values['date_of_birth'] == enter:
                 print('Такой пользователь существует')
