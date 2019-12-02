@@ -221,6 +221,7 @@ def main():
             input('press enter')
         if choose == '6':
             create_file()
+            input('press enter')
 
 
 if __name__ == '__main__':
