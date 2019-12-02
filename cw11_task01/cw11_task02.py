@@ -30,9 +30,12 @@ class Pet:
     def birthday(self):
         self.age += 1
 
+    def voice(self):
+        pass
+
 
 class Dog(Pet):
-    def bark(self):
+    def voice(self):
         print('bark')
 
     def jump(self, x):
@@ -43,7 +46,7 @@ class Dog(Pet):
 
 
 class Cat(Pet):
-    def meow(self):
+    def voice(self):
         print('meow')
 
     def jump(self, x):
@@ -54,6 +57,10 @@ class Cat(Pet):
 
 
 class Parrot(Pet):
+    def __init__(self, name, age, master, weight, height, species):
+        super().__init__(name, age, master, weight, height)
+        self.species = species
+
     def fly(self):
         if self.weight > 0.1:
             print('This parrot cant fly')
@@ -72,17 +79,36 @@ class Parrot(Pet):
         else:
             super().jump(x)
 
+    def voice(self):
+        print('Anything')
 
-parrot = Parrot('Vovchik', 3, 'Pasha', 0.01, 4)
-dog = Dog('Bobik', 3, 'vovchik', 4, 5)
-cat = Cat('Murzik', 5, 'Pasha', 5, 6)
-parrot.change_weight()
-print(parrot.weight)
-parrot.fly()
-print('_____________________________')
-dog.jump(3)
-parrot.jump(0.01)
-cat.jump(2)
+
+def voice_call(animals: list):
+    for animal in animals:
+        animal.voice()
+
+
+def main():
+    parrot = Parrot('Vovchik', 3, 'Pasha', 0.01, 4, 'ara')
+    dog = Dog('Bobik', 3, 'vovchik', 4, 5)
+    cat = Cat('Murzik', 5, 'Pasha', 5, 6)
+    parrot.change_weight()
+    parrot.fly()
+    print(parrot.weight)
+    print('_____________________________')
+
+    dog.jump(3)
+    parrot.jump(0.01)
+    cat.jump(2)
+    print(parrot.species)
+    print('____________________')
+
+    animal_list = [parrot, cat, dog]
+    voice_call(animal_list)
+
+
+if __name__ == '__main__':
+    main()
 
 
 
