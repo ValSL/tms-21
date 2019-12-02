@@ -105,10 +105,7 @@ def main():
 
     animal_list = [parrot, cat, dog]
     voice_call(animal_list)
-
+    print(dir(dog))
 
 if __name__ == '__main__':
     main()
-
-
-
