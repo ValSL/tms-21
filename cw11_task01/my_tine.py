@@ -6,9 +6,9 @@ class MyTime:
             self.seconds = args[2]
         elif len(args) == 1 and isinstance(args[0], str):
             lst = args[0].split('-')
-            self.hours = lst[0]
-            self.minutes = lst[1]
-            self.seconds = lst[2]
+            self.hours = int(lst[0])
+            self.minutes = int(lst[1])
+            self.seconds = int(lst[2])
         elif len(args) == 1 and isinstance(args[0], MyTime):
             self.hours = args[0].hours
             self.minutes = args[0].minutes
@@ -22,10 +22,7 @@ class MyTime:
         return self.hours == other.hours and self.minutes == other.minutes and self.seconds == other.seconds
 
     def __ne__(self, other):
-        if self.hours == other.hours and self.minutes == other.minutes and self.seconds == other.seconds:
-            return False
-        else:
-            return True
+        return not self == other  # Вызывается __eq__
 
     def __add__(self, other):
         sum_h = self.hours + other.hours
@@ -45,9 +42,9 @@ class MyTime:
 
 def main():
     my_time = MyTime(1, 1, 1)
-    my_time2 = MyTime()
-    print(my_time2)
-
+    my_time2 = MyTime('1-1-1')
+    t = my_time + my_time2
+    print(t)
 
 if __name__ == '__main__':
     main()

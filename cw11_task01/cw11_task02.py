@@ -1,10 +1,13 @@
 class Pet:
+    __counter = 0
+
     def __init__(self, name, age, master, weight, height):
         self.weight = weight
         self.height = height
         self.name = name
         self.age = age
         self.master = master
+        Pet.__counter += 1
 
     def change_weight(self, weight=None):
         if weight:
@@ -106,6 +109,6 @@ def main():
     animal_list = [parrot, cat, dog]
     voice_call(animal_list)
     print(dir(dog))
-
+    print(Pet._Pet__counter)
 if __name__ == '__main__':
     main()
