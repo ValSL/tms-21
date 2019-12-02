@@ -1,7 +1,7 @@
 from random import randint
 import json
 from datetime import datetime, date, time
-
+import os.path
 
 def file_to_dict(filename: str):
     """Возвращает данные файла в типе списка"""
@@ -21,6 +21,15 @@ def create_unique_id():
             continue
     return new_id
 
+
+def create_file():
+    if os.path.isfile('users.json'):
+        print('Файл уже создан')
+        return
+    else:
+        with open('users.json', 'w') as f:
+            date = json.dumps({})
+            f.write(date)
 
 def create_new_user(name, second_name, profession, date_of_birth):
     with open('users.json') as f:
@@ -179,6 +188,7 @@ def main():
         3) Изменить пользователя
         4) Найти пользователя
         5) Фильтр
+        6) Создать файл
         0) Выход
         ''')
         choose = input('Enter: ')
@@ -209,6 +219,8 @@ def main():
         if choose == '5':
             filter__print()
             input('press enter')
+        if choose == '6':
+            create_file()
 
 
 if __name__ == '__main__':
