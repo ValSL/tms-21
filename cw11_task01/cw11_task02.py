@@ -48,8 +48,23 @@ class Parrot(Pet):
         else:
             print('fly')
 
+    def change_weight(self, weight=None):
+        if weight:
+            self.weight += weight
+        else:
+            self.weight += 0.5
+
+    def change_height(self, height=None):
+        if height:
+            self.weight += height
+        else:
+            self.weight += 0.5
+
+
 
 parrot = Parrot('Vovchik', 3, 'Pasha', 0.01, 4)
 parrot.change_weight()
+print(parrot.weight)
 parrot.fly()
+
 
