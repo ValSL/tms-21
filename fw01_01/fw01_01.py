@@ -45,11 +45,15 @@ def create_new_user(name, second_name, profession, date_of_birth):
 def delete_user(id):
     dict_file = file_to_dict('users.json')
     delete_key = 0
+    id_list = []
     for keys, values in dict_file.items():
+        id_list.append(keys)
         if values['id'] == id:
             delete_key = keys
+    if delete_key not in id_list:
+        print('net')
+        return
     dict_file.pop(delete_key)
-
     with open('users.json', 'w') as f:
         data = json.dumps(dict_file)
         f.write(data)
