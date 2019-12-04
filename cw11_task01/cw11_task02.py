@@ -110,5 +110,7 @@ def main():
     voice_call(animal_list)
     print(dir(dog))
     print(Pet._Pet__counter)
+
+
 if __name__ == '__main__':
     main()

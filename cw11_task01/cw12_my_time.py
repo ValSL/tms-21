@@ -24,6 +24,24 @@ class MyTime:
     def __ne__(self, other):
         return not self == other  # Вызывается __eq__
 
+    def __ge__(self, other):
+        return self.hours >= other.hours and self.minutes >= other.minutes and self.seconds >= other.seconds
+
+    def __le__(self, other):
+        return self.hours <= other.hours and self.minutes <= other.minutes and self.seconds <= other.seconds
+
+    def __gt__(self, other):
+        return self.hours > other.hours and self.minutes > other.minutes and self.seconds > other.seconds
+
+    def __lt__(self, other):
+        return self.hours < other.hours and self.minutes < other.minutes and self.seconds < other.seconds
+
+    def __mul__(self, other):
+        mul_h = self.hours * other
+        mul_m = self.minutes * other
+        mul_s = self.seconds * other
+        return MyTime(mul_h, mul_m, mul_s)
+
     def __add__(self, other):
         sum_h = self.hours + other.hours
         sum_m = self.minutes + other.minutes
@@ -37,14 +55,19 @@ class MyTime:
         return MyTime(sum_h, sum_m, sum_s)
 
     def __str__(self):
+        self.minutes += self.seconds // 60
+        self.seconds = self.seconds % 60
+        self.hours += self.minutes // 60
+        self.minutes = self.minutes % 60
         return f'{self.hours}:{self.minutes}:{self.seconds}'
 
 
 def main():
-    my_time = MyTime(1, 1, 1)
-    my_time2 = MyTime('1-1-1')
-    t = my_time + my_time2
+    my_time = MyTime(12, 90, 3601)
+
+    t = my_time
     print(t)
+
 
 if __name__ == '__main__':
     main()
