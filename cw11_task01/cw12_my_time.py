@@ -64,9 +64,8 @@ class MyTime:
 
 def main():
     my_time = MyTime(12, 90, 3601)
-
-    t = my_time
-    print(t)
+    my_time2 = MyTime(4, 234, 5000)
+    print(my_time < my_time2) # fix
 
 
 if __name__ == '__main__':
