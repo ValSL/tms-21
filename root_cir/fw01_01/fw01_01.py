@@ -32,6 +32,7 @@ def create_file():
             date = json.dumps({})
             f.write(date)
 
+
 def create_new_user(name, second_name, profession, date_of_birth):
     with open('users.json') as f:
         data = json.loads(f.read())
@@ -202,7 +203,7 @@ def main():
         choose = input('Enter: ')
         if choose == '0':
             break
-        if choose == '1':
+        elif choose == '1':
             if not os.path.isfile('users.json'):
                 print('Создайте файл')
                 input('press enter')
@@ -227,22 +228,25 @@ def main():
 
             create_new_user(name, sec_name, prof, birth_date)
             input('press enter')
-        if choose == '2':
+        elif choose == '2':
             i = int(input('id: '))
             delete_user(i)
             input('press enter')
-        if choose == '3':
+        elif choose == '3':
             i = int(input('id: '))
             correction(i)
             input('press enter')
-        if choose == '4':
+        elif choose == '4':
             find()
             input('press enter')
-        if choose == '5':
+        elif choose == '5':
             filter__print()
             input('press enter')
-        if choose == '6':
+        elif choose == '6':
             create_file()
+            input('press enter')
+        else:
+            print('Неверный ввод')
             input('press enter')
 
 

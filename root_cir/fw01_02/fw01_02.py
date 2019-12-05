@@ -188,6 +188,7 @@ def csv_user_find():
                 csv_print(line[4])
                 print('_' * 150)
                 k = True
+                return k
             elif index == (len(rows) - 1) and k:
                 break
             elif index == (len(rows) - 1):
@@ -201,8 +202,14 @@ def csv_filter():
             1) Пользователи дата рождения которых раньше заданной
             2) Пользователи дата рождения которых позже заданной''')
     choose = input('Enter: ')
-    date_input = input('Введите дату: ')
-    date_input = datetime.strptime(date_input, '%d.%m.%Y').date()
+    while True:
+        date_input = input('Введите дату: ')
+        try:
+            date_input = datetime.strptime(date_input, '%d.%m.%Y').date()
+            break
+        except ValueError:
+            print('Введена не верная дата')
+            continue
     fields, rows = csv_read()
     if choose == '2':
         for index, line in enumerate(rows):
@@ -234,33 +241,64 @@ def main():
         choose = input('Enter: ')
         if choose == '0':
             break
-        if choose == '7':
+        elif choose == '7':
             csv_print_all()
             input('press enter')
-        if choose == '6':
+        elif choose == '6':
             csv_write([['_', '_', '_', '_', '_']])
+            csv_user_delete('_')
             input('press enter')
-        if choose == '1':
+        elif choose == '1':
+            if not os.path.isfile('users.csv'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             name = input('Введите имя: ')
             sec_name = input('Введите фамилию: ')
             prof = input('Введите профессию: ')
-            birth_date = input('Введите дату рождения в формате Day.Month.Year: ')
+            while True:
+                birth_date = input('Введите дату рождения в формате D.M.Y: ')
+                try:
+                    date_input = datetime.strptime(birth_date, '%d.%m.%Y').date()
+                    break
+                except ValueError:
+                    print('Дата введена не верно')
+                    continue
             lines = [name, sec_name, prof, birth_date, str(randint(1, 5))]
             csv_user_create([lines])
             input('press enter')
-        if choose == '2':
+        elif choose == '2':
+            if not os.path.isfile('users.csv'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             i = input('id: ')
             csv_user_delete(i)
             input('press enter')
-        if choose == '3':
+        elif choose == '3':
+            if not os.path.isfile('users.csv'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             i = input('id: ')
             csv_user_change(i)
             input('press enter')
-        if choose == '4':
+        elif choose == '4':
+            if not os.path.isfile('users.csv'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             csv_user_find()
             input('press enter')
-        if choose == '5':
+        elif choose == '5':
+            if not os.path.isfile('users.csv'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             csv_filter()
+            input('press enter')
+        else:
+            print('Неверный ввод')
             input('press enter')
 
 
