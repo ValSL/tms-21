@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 
 
-class Feline(ABC):
+class FelineInterface(ABC):
     @abstractmethod
     def scratch(self):
         pass
 
 
-class Celine(ABC):
+class CelineInterface(ABC):
     @abstractmethod
     def swim(self):
         pass
@@ -34,7 +34,7 @@ class WildAnimal(Animal):
         pass
 
 
-class Lion(WildAnimal, Feline):
+class Lion(WildAnimal, FelineInterface):
     def voice(self):
         pass
 
@@ -42,7 +42,7 @@ class Lion(WildAnimal, Feline):
         print('scratch')
 
 
-class Wolf(WildAnimal, Celine):
+class Wolf(WildAnimal, CelineInterface):
     def voice(self):
         pass
 
@@ -70,7 +70,7 @@ class Mule(Donkey):
         pass
 
 
-class Dog(Pet, Celine):
+class Dog(Pet, CelineInterface):
     def voice(self):
         print('bark')
 
@@ -78,7 +78,7 @@ class Dog(Pet, Celine):
         print('swim')
 
 
-class Cat(Pet, Feline):
+class Cat(Pet, FelineInterface):
     def voice(self):
         print('meow')
 
