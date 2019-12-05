@@ -1,7 +1,27 @@
 from random import randint, choice
 from string import ascii_uppercase
-class Pet:
+from abc import ABC, abstractmethod
+
+
+class Animal(ABC):
+    pass
+
+
+class WildAnimal(Animal):
+    pass
+
+
+class Lion(WildAnimal):
+    pass
+
+
+class Wolf(WildAnimal):
+    pass
+
+
+class Pet(Animal):
     __counter = 0
+    x = 1
 
     def __init__(self, name, age, master, weight, height):
         self.weight = weight
@@ -35,6 +55,7 @@ class Pet:
     def birthday(self):
         self.age += 1
 
+    @abstractmethod
     def voice(self):
         pass
 
@@ -45,6 +66,20 @@ class Pet:
     @staticmethod
     def get_random_name():
         return f'{choice(ascii_uppercase)}-{randint(1, 99)}'
+
+
+class Horse(Pet):
+    def voice(self):
+        print('blabla')
+
+
+class Donkey(Pet):
+    def voice(self):
+        print('lala')
+
+
+class Mule(Donkey):
+    pass
 
 
 class Dog(Pet):
@@ -123,6 +158,10 @@ def main():
     print('___________________________')
     print(Pet.get_counter())
     print(Pet.get_random_name())
+    print('_____________________________')
+    mule = Mule('Vova', 12, 'Pasha', 60, 15)
+    mule.voice()
+    print(mule.x)
 
 
 if __name__ == '__main__':
