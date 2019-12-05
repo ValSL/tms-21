@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 from string import ascii_uppercase
 class Pet:
     __counter = 0
@@ -44,8 +44,7 @@ class Pet:
 
     @staticmethod
     def get_random_name():
-        return f'{ascii_uppercase[randint(0, 26)]}-{randint(1, 100)}'
-
+        return f'{choice(ascii_uppercase)}-{randint(1, 99)}'
 
 
 class Dog(Pet):
