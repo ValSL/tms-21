@@ -36,6 +36,10 @@ class Pet:
     def voice(self):
         pass
 
+    @classmethod
+    def get_counter(cls):
+        return cls.__counter
+
 
 class Dog(Pet):
     def voice(self):
@@ -98,18 +102,20 @@ def main():
     parrot.change_weight()
     parrot.fly()
     print(parrot.weight)
-    print('_____________________________')
+    print('___________________________')
 
     dog.jump(3)
     parrot.jump(0.01)
     cat.jump(2)
     print(parrot.species)
-    print('____________________')
+    print('___________________________')
 
     animal_list = [parrot, cat, dog]
     voice_call(animal_list)
     print(dir(dog))
     print(Pet._Pet__counter)
+    print('___________________________')
+    print(Pet.get_counter())
 
 
 if __name__ == '__main__':
