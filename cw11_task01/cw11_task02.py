@@ -1,3 +1,5 @@
+from random import randint
+from string import ascii_uppercase
 class Pet:
     __counter = 0
 
@@ -39,6 +41,11 @@ class Pet:
     @classmethod
     def get_counter(cls):
         return cls.__counter
+
+    @staticmethod
+    def get_random_name():
+        return f'{ascii_uppercase[randint(0, 26)]}-{randint(1, 100)}'
+
 
 
 class Dog(Pet):
@@ -116,6 +123,7 @@ def main():
     print(Pet._Pet__counter)
     print('___________________________')
     print(Pet.get_counter())
+    print(Pet.get_random_name())
 
 
 if __name__ == '__main__':
