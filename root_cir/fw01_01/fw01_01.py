@@ -3,6 +3,7 @@ import json
 from datetime import datetime, date, time
 import os.path
 
+
 def file_to_dict(filename: str):
     """Возвращает данные файла в типе списка"""
     with open(filename) as f:
@@ -164,8 +165,15 @@ def filter__print():
         1) Пользователи дата рождения которых раньше заданной
         2) Пользователи дата рождения которых позже заданной''')
     choose = input('Enter: ')
-    date_input = input('Введите дату: ')
-    date_input = datetime.strptime(date_input, '%d.%m.%Y').date()
+    while True:
+        date_input = input('Введите дату: ')
+        try:
+            date_input = datetime.strptime(date_input, '%d.%m.%Y').date()
+            break
+        except ValueError:
+            print('Введена не верная дата')
+            continue
+
     dict_file = file_to_dict('users.json')
     if choose == '2':
         for keys, values in dict_file.items():
@@ -195,14 +203,28 @@ def main():
         if choose == '0':
             break
         if choose == '1':
+            if not os.path.isfile('users.json'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             file = file_to_dict('users.json')
             if len(file) == 5:
                 print('Лимит')
+                print('press enter')
                 continue
             name = input('Введите имя: ')
             sec_name = input('Введите фамилию: ')
             prof = input('Введитн профессию: ')
-            birth_date = input('Введите дату рождения в формате D.M.Y: ')
+
+            while True:
+                birth_date = input('Введите дату рождения в формате D.M.Y: ')
+                try:
+                    date_input = datetime.strptime(birth_date, '%d.%m.%Y').date()
+                    break
+                except ValueError:
+                    print('Дата введена не верно')
+                    continue
+
             create_new_user(name, sec_name, prof, birth_date)
             input('press enter')
         if choose == '2':
