@@ -211,7 +211,7 @@ def main():
             file = file_to_dict('users.json')
             if len(file) == 5:
                 print('Лимит')
-                print('press enter')
+                input('press enter')
                 continue
             name = input('Введите имя: ')
             sec_name = input('Введите фамилию: ')
@@ -229,20 +229,40 @@ def main():
             create_new_user(name, sec_name, prof, birth_date)
             input('press enter')
         elif choose == '2':
+            if not os.path.isfile('users.json'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             i = int(input('id: '))
             delete_user(i)
             input('press enter')
         elif choose == '3':
+            if not os.path.isfile('users.json'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             i = int(input('id: '))
             correction(i)
             input('press enter')
         elif choose == '4':
+            if not os.path.isfile('users.json'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             find()
             input('press enter')
         elif choose == '5':
+            if not os.path.isfile('users.json'):
+                print('Создайте файл')
+                input('press enter')
+                continue
             filter__print()
             input('press enter')
         elif choose == '6':
+            if os.path.isfile('users.json'):
+                print('Файл уже создан')
+                input('press enter')
+                continue
             create_file()
             input('press enter')
         else:

@@ -5,8 +5,12 @@ from fw01_02 import fw01_02
 
 def main():
     if ENGIN == 'JSON':
+        print('Выбран JSON формат')
+        input('press enter')
         fw01_01.main()
     elif ENGIN == 'CSV':
+        print('Выбран CSV формат')
+        input('press enter')
         fw01_02.main()
 
 

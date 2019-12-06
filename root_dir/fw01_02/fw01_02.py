@@ -241,13 +241,6 @@ def main():
         choose = input('Enter: ')
         if choose == '0':
             break
-        elif choose == '7':
-            csv_print_all()
-            input('press enter')
-        elif choose == '6':
-            csv_write([['_', '_', '_', '_', '_']])
-            csv_user_delete('_')
-            input('press enter')
         elif choose == '1':
             if not os.path.isfile('users.csv'):
                 print('Создайте файл')
@@ -296,6 +289,17 @@ def main():
                 input('press enter')
                 continue
             csv_filter()
+            input('press enter')
+        elif choose == '6':
+            if os.path.isfile('users.csv'):
+                print('Файл уже создан')
+                input('press enter')
+                continue
+            csv_write([['_', '_', '_', '_', '_']])
+            csv_user_delete('_')
+            input('press enter')
+        elif choose == '7':
+            csv_print_all()
             input('press enter')
         else:
             print('Неверный ввод')
