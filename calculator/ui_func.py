@@ -1,5 +1,6 @@
-import func
+from classes import Math
 from exceptions import NumOnlyException
+
 
 def ui():
     while True:
@@ -11,7 +12,7 @@ def ui():
                 0) Выход''')
         enter = input('Enter: ')
         try:
-            if enter.isdigit() == False:
+            if not enter.isdigit():
                 raise NumOnlyException
         except NumOnlyException:
             print('Введите число')
@@ -25,7 +26,7 @@ def ui():
                 print('Введены неверные числа!')
                 input('press enter')
                 continue
-            print(func.add(number_1, number_2))
+            print(Math.add(number_1, number_2))
         elif enter == '2':
             print('Введите два числа: ')
             try:
@@ -35,7 +36,7 @@ def ui():
                 print('Введены неверные числа!')
                 input('press enter')
                 continue
-            print(func.diff(number_1, number_2))
+            print(Math.diff(number_1, number_2))
         elif enter == '3':
             print('Введите два числа: ')
             try:
@@ -45,7 +46,7 @@ def ui():
                 print('Введены неверные числа!')
                 input('press enter')
                 continue
-            print(func.mul(number_1, number_2))
+            print(Math.mul(number_1, number_2))
         elif enter == '4':
             print('Введите два числа: ')
             try:
@@ -56,7 +57,7 @@ def ui():
                 input('press enter')
                 continue
             try:
-                res = func.div(number_1, number_2)
+                res = Math.div(number_1, number_2)
             except ZeroDivisionError:
                 print('Деление на 0!!!')
                 input('press enter')
