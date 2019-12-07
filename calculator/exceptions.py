@@ -1,0 +1,2 @@
+class NumOnlyException(Exception):
+    pass
