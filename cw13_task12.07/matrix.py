@@ -6,9 +6,14 @@ class Matrix:
     def __init__(self, n=5, m=5, a=0, b=0):
         self.data = [[randint(a, b) for i in range(n)] for j in range(m)]
 
-    def __str__(self):
-        return str(self.data)
+    def create_str(self):
+        st = ''
+        for i in self.data:
+            st += str(i) + '\n'
+        return st
 
+    def __str__(self):
+        return Matrix.create_str(self)
 
     def max_elem(self):
         max_elem = self.data[0][0]
@@ -23,7 +28,7 @@ class Matrix:
         for line in self.data:
             for row in line:
                 if row < min_elem:
-                    max_elem = row
+                    min_elem = row
         return min_elem
 
     def sum_elem(self):
