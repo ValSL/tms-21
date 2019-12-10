@@ -12,29 +12,6 @@ parser.add_argument('task_name')
 args = parser.parse_args()
 
 
-# def timer_generator(hours, minutes, sec):
-#     h_to_sec = hours * 3600
-#     m_to_sec = minutes * 60
-#     seconds = sec + m_to_sec + h_to_sec
-#     b = timedelta(seconds=seconds)
-#     for i in range(seconds):
-#         yield str(b)
-#         b -= timedelta(seconds=1)
-#
-#
-# with open(f'{os.getcwd()}/cw14_01/log.csv', 'a') as f:
-#     csvwriter = csv.writer(f)
-#     date, time = str(datetime.today()).split(' ')
-#     csvwriter.writerow([args.name, args.sec_name, date, time])
-# timer = timer_generator(args.hours, args.minutes, args.seconds)
-#
-# for i in timer:
-#     print(i)
-#     sleep(1)
-# print('ALARM!!!')
-#
-
-
 def pomodoro_timer(focus_time, chill_time, loop_count):
     for j in range(loop_count):
         m_to_sec = focus_time * 60
