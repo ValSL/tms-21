@@ -1,6 +1,8 @@
-from time import sleep
+import argparse
+import csv
+import os
 from datetime import timedelta, datetime
-import argparse, os, csv
+from time import sleep
 
 parser = argparse.ArgumentParser()
 parser.add_argument('name', type=str)
