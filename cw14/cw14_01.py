@@ -1,21 +1,13 @@
 from time import sleep
-import random
+from random import randint
 
 
-def infinite_numbers(a, b, diff):
+def my_gen():
     while True:
-        yield random.randint(a, b)
-        a += diff
-        b += diff
+        yield randint(1, 9)
 
 
-def main():
-    mg = infinite_numbers(1, 10, 100)
-
-    for i in mg:
-        print(i)
-        sleep(1)
-
-
-if __name__ == '__main__':
-    main()
+mg = my_gen()
+for i in mg:
+    print(i)
+    sleep(1)
