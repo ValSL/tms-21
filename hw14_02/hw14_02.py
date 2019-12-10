@@ -1,4 +1,6 @@
 import argparse
+import csv
+import os
 from datetime import timedelta, datetime
 from time import sleep
 
@@ -51,9 +53,13 @@ def pomodoro_timer(focus_time, chill_time, loop_count):
     print('LONG CHILL TIME')
 
 
+with open(f'{os.getcwd()}/hw14_02/launch_log.csv', 'a') as f:
+    csvwriter = csv.writer(f)
+    date, time = str(datetime.today()).split(' ')
+    csvwriter.writerow([date, time])
 
 timer = pomodoro_timer(args.focus_time, args.chill_time, args.loop_count)
 
 for i in timer:
     print(i)
-    sleep(0.01)
+    sleep(0.03)
