@@ -1,5 +1,5 @@
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, and_
 from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -27,3 +27,17 @@ session.add(Person('Alex', 'Varkalov'))
 session.add_all([Person('Alex', 'Petrov'), Person('Ann', 'Ivanova')])
 session.commit()
 
+person = session.query(Person)
+print('-----------------------')
+print(person)
+person = session.query(Person).filter_by(firstname="Alex").first()
+print('-----------------------')
+print(person.firstname)
+
+person = session.query(Person).filter(
+   Person.firstname=="Alex").first()
+
+person = session.query(Person).filter(and_(
+  Person.firstname=="Alex",
+  Person.lastname=="Varkalov",
+)).all()
