@@ -23,7 +23,7 @@ def timer_generator(hours, minutes, sec):
         b -= timedelta(seconds=1)
 
 
-with open(f'{os.getcwd()}/cw14_01/log.csv', 'a') as f:
+with open(f'{os.getcwd()}/hw14_01/log.csv', 'a') as f:
     csvwriter = csv.writer(f)
     date, time = str(datetime.today()).split(' ')
     csvwriter.writerow([args.name, args.sec_name, date, time])
