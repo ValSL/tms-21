@@ -36,8 +36,10 @@ print(person.firstname)
 
 person = session.query(Person).filter(
    Person.firstname=="Alex").first()
+print('-----------------------')
+print(person.firstname)
 
-person = session.query(Person).filter(and_(
-  Person.firstname=="Alex",
-  Person.lastname=="Varkalov",
-)).all()
+# person = session.query(Person).filter(and_(
+#   Person.firstname=="Alex",
+#   Person.lastname=="Varkalov",
+# )).all()
