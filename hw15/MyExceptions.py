@@ -1,0 +1,2 @@
+class OnlyString(Exception):
+    pass

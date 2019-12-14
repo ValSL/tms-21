@@ -1,6 +1,4 @@
 import functions
-from database import Products, engine
-from sqlalchemy.orm.session import sessionmaker
 
 while True:
     print(''''Выберите действие:
@@ -22,5 +20,8 @@ while True:
         input('press enter')
     elif inp == '4':
         functions.delete_product()
+        input('press enter')
+    else:
+        print('Неверный ввод!')
         input('press enter')
 
