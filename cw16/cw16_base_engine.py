@@ -1,5 +1,8 @@
 from sqlalchemy_utils import create_database, database_exists
 from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+
+
 
 DB_USER = 'postgres'
 DB_PASSWORD = 'postgres'
@@ -12,3 +15,5 @@ engine = create_engine(
 )
 if not database_exists(engine.url):
    create_database(engine.url)
+
+Base = declarative_base()
