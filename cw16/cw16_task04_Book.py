@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Table
 from cw16_base_engine import Base
 from sqlalchemy.orm import relationship, backref
-from cw16_classes import Student
+from cw16_classes import Student #тут это нужно, для таблицы ассоциаций, чтобы она видела student.id
 
 
 association_table = Table('assotiations', Base.metadata,
