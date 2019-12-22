@@ -11,13 +11,15 @@ def main():
         2) Добавить машину
         3) Удалить бренд
         4) Удалить машину
-        5) Создать базу''')
+        5) Обновить бренд
+        6) Создать базу''')
         choose_dict = {
             1: funcs.add_brand,
             2: funcs.add_car,
             3: funcs.delete_brand,
             4: funcs.delete_car,
-            5: funcs.create_base,
+            5: funcs.update_brand,
+            6: funcs.create_base,
         }
         choose = int(input('Enter number: '))
         if not choose:
