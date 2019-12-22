@@ -8,7 +8,7 @@ DB_NAME = 'hw16'
 DB_ECHO = True
 engine = create_engine(
     f'postgresql://{DB_USER}:{DB_PASSWORD}@localhost/{DB_NAME}',
-    echo=True)
+    echo=False)
 
 if not database_exists(engine.url):
     create_database(engine.url)

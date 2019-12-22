@@ -22,7 +22,7 @@ class Car(Base):
     model = Column(String)
     release_year = Column(Integer)
     brand_id = Column(Integer, ForeignKey('brand.id'), nullable=False)
-    brand = relationship('Car', foreign_keys='Car.brand_id', backref='brand')
+    brand = relationship('Brand', foreign_keys='Car.brand_id')
 
     def __repr__(self):
         return f'{self.id} {self.model} {self.release_year} {self.brand}'
@@ -30,6 +30,13 @@ class Car(Base):
 
 def create_base():
     Base.metadata.create_all(engine)
+
+
+def get_brand(brand_id):
+    session = Session()
+    brand = session.query(Brand).filter_by(id=brand_id).first()
+    session.close()
+    return brand
 
 
 def print_available_brands():
@@ -59,8 +66,9 @@ def delete_brand():
     session = Session()
     print_available_brands()
     choose = int(input('Enter id: '))
-    session.query(Brand).filter_by(Brand.id == choose).\
+    session.query(Brand).filter(Brand.id == choose).\
         delete(synchronize_session=False)
+    session.commit()
 
 
 def update_brand():
@@ -68,9 +76,9 @@ def update_brand():
     print_available_brands()
     choose = int(input('Enter id: '))
     new_brand_name = input('Enter new brand name: ')
-    session.query(Brand).filter_by(Brand.id == choose). \
+    session.query(Brand).filter(Brand.id == choose). \
         update({Brand.name: new_brand_name}, synchronize_session=False)
-
+    session.commit()
 
 
 def enter_car():
@@ -80,17 +88,17 @@ def enter_car():
     print_available_brands()
     print('-----------------')
     brand_id = int(input('Enter brand id: '))
-    return model, release_year, brand_id
+    brand = get_brand(brand_id)
+    return model, release_year, brand
 
 
 def add_car():
     session = Session()
-    model, year, brand_id = enter_car()
-    brand = session.query(Brand).filter_by(Brand.id==brand_id)
+    model, year, brand = enter_car()
     new_car = Car(
         model=model,
         release_year=year,
-        brand=brand.name,
+        brand=brand,
     )
     session.add(new_car)
     session.commit()
@@ -103,6 +111,44 @@ def delete_car():
     for car in cars:
         print(car.id)
     choose = int(input('Enter id: '))
-    session.query(Car).filter_by(Car.id == choose).\
+    session.query(Car).filter(Car.id == choose).\
         delete(synchronize_session=False)
+
+
+def print_cars():
+    session = Session()
+    cars = session.query(Car).all()
+    for car in cars:
+        print(f'{car.id}|{car.model}|{car.release_year}|{car.brand.name}')
+
+
+def choose_car_param():
+    print('\nChoose the parameter which you want to update:',
+          '1. Model',
+          '2. Brand',
+          '3. Release year')
+    param_dict = {
+        1: 'model',
+        2: 'brand',
+        3: 'release_year',
+    }
+    param_num = int(input('Enter param num: '))
+    return param_dict[param_num]
+
+
+def update_car():
+    car_id = int(input('Enter car id: '))
+    paramater = choose_car_param()
+    session = Session()
+    if paramater == 'brand':
+        print_available_brands()
+        brand_id = int(input("Enter brand id: "))
+        session.query(Car).filter(Car.id == car_id). \
+            update({Car.brand_id: brand_id})
+        session.commit()
+        return
+    new_value = input('Enter new value: ')
+    session.query(Car).filter(Car.id==car_id). \
+        update({paramater: new_value})
+    session.commit()
 
